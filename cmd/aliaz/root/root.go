@@ -43,8 +43,18 @@ func Commands() *cli.Command {
 
 					util.ValidateArguments(cmd.Args().First(), cmd.Args().Get(1))
 
-					// TODO: Check if alias already exist in shell.
+					// Check if the alias already exists
+					aliasExists, err := util.ValidateAlias(cmd.Args().First(), shellConfig.ShellPath)
+					if err != nil {
+						fmt.Println("Error validating alias:", err)
+						os.Exit(1)
+					}
+					if aliasExists {
+						fmt.Printf("Alias '%s' already exists. Use 'aliaz edit' to modify it.\n", cmd.Args().First())
+						os.Exit(1)
+					}
 
+					// Add alias
 					action.AddAlias(cmd.Args().First(), cmd.Args().Get(1), shellConfig.ShellPath)
 					return nil
 				},
@@ -67,7 +77,17 @@ func Commands() *cli.Command {
 					// 1. Validate arguments
 					util.ValidateArguments(cmd.Args().First(), cmd.Args().Get(1))
 
-					// 2. TODO: Check if the alias exists
+					// Check if the alias already exists
+					aliasExists, err := util.ValidateAlias(cmd.Args().First(), shellConfig.ShellPath)
+					if err != nil {
+						fmt.Println("Error validating alias:", err)
+						os.Exit(1)
+					}
+
+					if !aliasExists {
+						fmt.Printf("Alias %s does not exists. Use 'aliaz add' to add it.\n", cmd.Args().First())
+						os.Exit(1)
+					}
 
 					// 3. Remove alias
 					action.RemoveAlias(cmd.Args().First(), shellConfig.ShellPath)
@@ -86,7 +106,17 @@ func Commands() *cli.Command {
 					// 1. Validate arguments
 					util.ValidateArguments(cmd.Args().First())
 
-					// 2. TODO" Check if alias exist
+					// Check if the alias exists
+					aliasExists, err := util.ValidateAlias(cmd.Args().First(), shellConfig.ShellPath)
+					if err != nil {
+						fmt.Println("Error validating alias:", err)
+						os.Exit(1)
+					}
+
+					if !aliasExists {
+						fmt.Printf("Alias %s does not exists. Use 'aliaz add' to add it.\n", cmd.Args().First())
+						os.Exit(1)
+					}
 
 					// 3. Remove alias
 					action.RemoveAlias(cmd.Args().First(), shellConfig.ShellPath)
