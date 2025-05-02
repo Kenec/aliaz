@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	
 	"github.com/Kenec/aliaz/cmd/aliaz/root"
 )
 

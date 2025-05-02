@@ -30,7 +30,7 @@ func ValidateAlias(alias, shellPath string) (bool, error) {
 
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
-		
+
 		// Skip commented lines
 		if strings.HasPrefix(line, "#") {
 			continue

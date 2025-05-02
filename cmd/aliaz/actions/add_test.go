@@ -10,8 +10,8 @@ import (
 func TestAddAlias(t *testing.T) {
 	// set up the test environment
 
-	shellConfig := util.ShellConfig {
-		Name: "bash",
+	shellConfig := util.ShellConfig{
+		Name:      "bash",
 		ShellPath: "../../../assets/.bashrc",
 	}
 	// Test cases for adding aliases

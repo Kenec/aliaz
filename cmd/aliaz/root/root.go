@@ -25,11 +25,11 @@ func Commands() *cli.Command {
 	}
 
 	return &cli.Command{
-		Name:  "aliaz",
-		Version: "0.1.0",
-		Usage: "A command line tool to manage shell aliases",
+		Name:        "aliaz",
+		Version:     "0.1.0",
+		Usage:       "A command line tool to manage shell aliases",
 		Description: "Aliaz is a command line tool to manage shell aliases. It allows you to add, list, edit, and delete aliases in the shell.",
-		ArgsUsage: "<alias> <command> eg: aliaz add gs \"git status\"",
+		ArgsUsage:   "<alias> <command> eg: aliaz add gs \"git status\"",
 		Action: func(context.Context, *cli.Command) error {
 			fmt.Println("aliaz")
 			return nil

@@ -11,9 +11,8 @@ const bashrc = "~/.bashrc"
 const zshrc = "~/.zshrc"
 const fishConfig = "~/.config/fish/config.fish"
 
-
 type ShellConfig struct {
-	Name string
+	Name      string
 	ShellPath string
 }
 
@@ -36,17 +35,17 @@ func SetShell(shell string) (*ShellConfig, error) {
 	switch shell {
 	case "bash":
 		shellConfig = &ShellConfig{
-			Name: "bash",
+			Name:      "bash",
 			ShellPath: ExpandPath(bashrc),
 		}
 	case "zsh":
 		shellConfig = &ShellConfig{
-			Name: "zsh",
+			Name:      "zsh",
 			ShellPath: ExpandPath(zshrc),
 		}
 	case "fish":
 		shellConfig = &ShellConfig{
-			Name: "fish",
+			Name:      "fish",
 			ShellPath: ExpandPath(fishConfig),
 		}
 	default:
