@@ -9,7 +9,7 @@ import (
 )
 
 // Test setup
-func CreateTestShellFile(path string) error{
+func CreateTestShellFile(path string) error {
 	file, err := os.Create(path)
 	if err != nil {
 		return err

@@ -18,7 +18,7 @@ func TestRemoveAlias(t *testing.T) {
 
 	// Add alias
 	action.AddAlias("mk", "mkdir", testShellPath)
-	
+
 	aliasToRemove := "mk"
 
 	// Test case for removing an alias
