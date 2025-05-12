@@ -33,7 +33,7 @@ jobs:
           BIN_NAME="aliaz"
           ARCHIVE_NAME="${BIN_NAME}-${{ matrix.goos }}-${{ matrix.goarch }}"
 
-          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ${BIN_NAME}$EXT .
+          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ${BIN_NAME}$EXT ./cmd/aliaz/...
 
           if [ "${{ matrix.goos }}" = "windows" ]; then
             zip -j "dist/${ARCHIVE_NAME}.zip" "${BIN_NAME}$EXT"
